@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Акции</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="theme.css?v=2">
+    <style>
+        /* Дополнительные стили для крупных карточек акций */
+        .specials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .special-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            position: relative;
+        }
+
+        .special-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .special-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .special-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .special-title {
+            display: block;
+            font-family: 'Rubik Dirt', system-ui;
+            font-size: 1.2rem;
+            color: var(--text);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .special-price-tag {
+            display: inline-block;
+            background: rgba(200, 162, 74, 0.15);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 800;
+            border: 1px solid rgba(200, 162, 74, 0.3);
+        }
+
+        /* Улучшение описания в модальном окне */
+        .modal-description {
+            color: var(--muted);
+            margin-top: 10px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+            <a href="index_rus.html" class="back-arrow">
+                <i class="fas fa-arrow-left"></i> Назад
+            </a>
+
+        <h1>Акции</h1>
+
+        <div class="specials-grid">
+            <div class="special-card" onclick="openSpecial('Whiskey Night', 'Пять порций нашего фирменного виски премиум-класса. Предложение действительно всю ночь по пятницам.', 'pic/five_whiskey.jpg', '60₪')">
+                <img src="pic/five_whiskey.jpg" class="special-img" alt="Whiskey">
+                <div class="special-info">
+                    <span class="special-title">5 рюмок виски</span>
+                    <div class="special-price-tag">60₪</div>
+                </div>
+            </div>
+
+            <div class="special-card" onclick="openSpecial('Tequila Party', 'Пять рюмок серебряной текилы с лаймом и солью. Идеально для начала вечера.', 'pic/five_tequila.jpg', '60₪')">
+                <img src="pic/five_tequila.jpg" class="special-img" alt="Tequila">
+                <div class="special-info">
+                    <span class="special-title">5 рюмок текилы</span>
+                    <div class="special-price-tag">60₪</div>
+                </div>
+            </div>
+
+            <div class="special-card" onclick="openSpecial('Rum Festival', 'Набор темного карибского рома. Пять порций, чтобы почувствовать тропическую атмосферу.', 'pic/five_rum.jpg', '60₪')">
+                <img src="pic/five_rum.jpg" class="special-img" alt="Rum">
+                <div class="special-info">
+                    <span class="special-title">5 рюмок рома</span>
+                    <div class="special-price-tag">60₪</div>
+                </div>
+            </div>
+
+            <div class="special-card" onclick="openSpecial('Vodka Classic', 'Пять порций охлажденной водки. Традиционный выбор для большой компании.', 'pic/five_vodka.jpg', '60₪')">
+                <img src="pic/five_vodka.jpg" class="special-img" alt="Vodka">
+                <div class="special-info">
+                    <span class="special-title">5 рюмок водки</span>
+                    <div class="special-price-tag">60₪</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-box">
+            <img class="modal-content" id="imgFull">
+            <div class="modal-caption">
+                <h2 id="modalTitle" style="color:var(--accent); margin-bottom:5px;"></h2>
+                <div id="modalPrice" class="special-price-tag" style="margin-bottom:15px;"></div>
+                <p id="modalDesc" class="modal-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("imgFull");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+        const modalPrice = document.getElementById("modalPrice");
+        const closeBtn = document.querySelector(".close-modal");
+
+        function openSpecial(title, description, imgSrc, price) {
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+            modalTitle.innerText = title;
+            modalDesc.innerText = description;
+            modalPrice.innerText = price;
+        }
+
+        closeBtn.onclick = () => modal.style.display = "none";
+        modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+    </script>
+
+</body>
+</html>

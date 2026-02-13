@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soft Drinks</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="theme.css" />
+</head>
+
+<body>
+  <div class="container">
+      <a href="index_eng.html" class="back-arrow">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </a>
+
+    <h1>Soft Drinks</h1>
+
+    <ul class="product-list">
+      <li class="product-item header-row">
+        <span class="product-name"></span>
+        <span class="product-gram">price</span>
+      </li>
+
+      <li class="product-item"><span class="product-name">Juice</span><span class="product-price">10₪</span></li>
+      <li class="product-item"><span class="product-name">Eshqolit</span><span class="product-price">10₪</span></li>
+      <li class="product-item"><span class="product-name">Clear Apple Cider</span><span class="product-price">12₪</span></li>
+      <li class="product-item"><span class="product-name">Cola / Zero</span><span class="product-price">10₪</span></li>
+      <li class="product-item"><span class="product-name">Pepsi</span><span class="product-price">10₪</span></li>
+      <li class="product-item"><span class="product-name">Dr Pepper</span><span class="product-price">12₪</span></li>
+      <li class="product-item"><span class="product-name">Sprite</span><span class="product-price">10₪</span></li>
+      <li class="product-item"><span class="product-name">Cranberry Juice</span><span class="product-price">10₪</span></li>
+      <li class="product-item"><span class="product-name">Tonic</span><span class="product-price">10₪</span></li>
+      <li class="product-item"><span class="product-name">Ginger Ale</span><span class="product-price">10₪</span></li>
+      <li class="product-item"><span class="product-name">Mineral Water</span><span class="product-price">10₪</span></li>
+      <li class="product-item"><span class="product-name">Soda Water</span><span class="product-price">10₪</span></li>
+      <li class="product-item"><span class="product-name">Nestea</span><span class="product-price">10₪</span></li>
+      <li class="product-item"><span class="product-name">Iced Coffee</span><span class="product-price">22₪</span></li>
+      <li class="product-item"><span class="product-name">Alcoholic Iced Coffee</span><span class="product-price">28₪</span></li>
+      <li class="product-item"><span class="product-name">Frozen Lemonana</span><span class="product-price">20₪</span></li>
+      <li class="product-item"><span class="product-name">Alcoholic Lemonana</span><span class="product-price">26₪</span></li>
+      <li class="product-item"><span class="product-name">Milkshake</span><span class="product-price">30₪</span></li>
+    </ul>
+
+    <!-- Modal (оставлена, но без .product-logo не используется) -->
+    <div id="imageModal" class="modal" aria-hidden="true" style="display:none;">
+      <span class="close-modal" role="button" tabindex="0" aria-label="Close">&times;</span>
+      <img class="modal-content" id="imgFull" alt="Full image" />
+    </div>
+
+    <script>
+      const logos = document.querySelectorAll(".product-logo");
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("imgFull");
+      const closeBtn = document.querySelector(".close-modal");
+
+      if (logos.length) {
+        function openModal(img) {
+          modal.style.display = "flex";
+          modal.setAttribute("aria-hidden", "false");
+          modalImg.src = img.src;
+          modalImg.alt = img.alt || "Image";
+        }
+
+        function closeModal() {
+          modal.style.display = "none";
+          modal.setAttribute("aria-hidden", "true");
+        }
+
+        logos.forEach((img) => img.addEventListener("click", () => openModal(img)));
+        closeBtn.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.style.display === "flex") closeModal();
+        });
+      }
+    </script>
+
+    <!-- Accessibility widget (Negishim) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="https://www.negishim.com/accessibility/accessibility_pro_group255.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      accessibility_rtl = true;
+      pixel_from_side = 20;
+      pixel_from_start = 20;
+      css_style = 2;
+    </script>
+    <!-- /Accessibility widget (Negishim) -->
+  </div>
+</body>
+</html>

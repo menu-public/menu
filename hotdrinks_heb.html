@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>משקאות חמים</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="theme_heb.css" />
+</head>
+
+<body>
+  <div class="container">
+    <a href="index.html" class="back-arrow">
+      <span class="back-icon">&larr;</span> חזור
+    </a>
+
+    <h1>משקאות חמים</h1>
+
+    <ul class="product-list">
+      <li class="product-item header-row">
+        <span class="product-name"></span>
+        <span class="product-gram">מחיר</span>
+      </li>
+     <li class="product-item">
+        <img src="pic/cider.jpg" alt="סיידר חם" class="product-logo" />
+        <span class="product-name">סיידר חם</span>
+        <span class="product-price">22₪</span>
+      </li>
+
+      <li class="product-item">
+        <img src="pic/cider.jpg" alt="סיידר חם אלכוהולי" class="product-logo" />
+        <span class="product-name">סיידר חם אלכוהולי</span>
+        <span class="product-price">28₪</span>
+      </li>
+
+      <li class="product-item">
+        <img src="pic/tea.jpg" alt="תה במבחר טעמים" class="product-logo" />
+        <span class="product-name">תה במבחר טעמים</span>
+        <span class="product-price">15₪</span>
+      </li>
+
+      <li class="product-item">
+        <img src="pic/coffee.jpg" alt="קפה שחור אילן" class="product-logo" />
+        <span class="product-name">קפה שחור אילן</span>
+        <span class="product-price">10₪</span>
+      </li>
+    </ul>
+
+    <!-- Modal (оставили на месте, но без лого она не используется) -->
+    <div id="imageModal" class="modal" aria-hidden="true" style="display:none;">
+      <span class="close-modal" role="button" tabindex="0" aria-label="סגור">&times;</span>
+      <img class="modal-content" id="imgFull" alt="תמונה מוגדלת" />
+    </div>
+
+    <script>
+      const logos = document.querySelectorAll(".product-logo");
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("imgFull");
+      const closeBtn = document.querySelector(".close-modal");
+
+      if (logos.length) {
+        function openModal(img) {
+          modal.style.display = "flex";
+          modal.setAttribute("aria-hidden", "false");
+          modalImg.src = img.src;
+          modalImg.alt = img.alt || "תמונה";
+        }
+
+        function closeModal() {
+          modal.style.display = "none";
+          modal.setAttribute("aria-hidden", "true");
+        }
+
+        logos.forEach((img) => img.addEventListener("click", () => openModal(img)));
+        closeBtn.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.style.display === "flex") closeModal();
+        });
+      }
+    </script>
+
+    <!-- Accessibility widget (Negishim) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://www.negishim.com/accessibility/accessibility_pro_group255.js"></script>
+    <script>
+      accessibility_rtl = false;
+      pixel_from_side = 20;
+      pixel_from_start = 20;
+      css_style = 2;
+    </script>
+    <!-- /Accessibility widget (Negishim) -->
+  </div>
+</body>
+</html>

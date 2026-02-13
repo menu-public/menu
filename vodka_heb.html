@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>תפריט וודקה</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="theme_heb.css" />
+</head>
+
+<body>
+  <div class="container">
+    <a href="index.html" class="back-arrow">
+      <span class="back-icon">&larr;</span> חזור
+    </a>
+
+    <h1>וודקה</h1>
+
+    <ul class="product-list">
+      <li class="product-item header-row">
+        <span class="product-name"></span>
+        <span class="product-gram">צ׳ייסר / שוט</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Finlandia</span>
+        <span class="product-price">16₪ / 32₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Absolut</span>
+        <span class="product-price">16₪ / 32₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Smirnoff</span>
+        <span class="product-price">16₪ / 32₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Van Gogh (Flavored)</span>
+        <span class="product-price">26₪ / 54₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Zubrowka</span>
+        <span class="product-price">16₪ / 32₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Stolichnaya</span>
+        <span class="product-price">16₪ / 32₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Stoli Gold</span>
+        <span class="product-price">19₪ / 38₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Beluga</span>
+        <span class="product-price">21₪ / 42₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Grappa</span>
+        <span class="product-price">20₪ / 40₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Grappa Dark</span>
+        <span class="product-price">20₪ / 40₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Absinthe</span>
+        <span class="product-price">24₪ / 48₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Absinthe 80%</span>
+        <span class="product-price">24₪ / 48₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Absinthe King of Spirits</span>
+        <span class="product-price">40₪ / 80₪</span>
+      </li>
+
+      <!-- если это разделитель - лучше так, чем пустые спаны -->
+      <li class="product-item divider" aria-hidden="true"></li>
+
+      <li class="product-item">
+        <span class="product-name">Russian</span>
+        <span class="product-price">15₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">XL</span>
+        <span class="product-price">15₪</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Modal (оставил, но сейчас она нигде не используется без картинок) -->
+  <div id="imageModal" class="modal" aria-hidden="true" style="display:none;">
+    <span class="close-modal" role="button" tabindex="0" aria-label="Close">&times;</span>
+    <img class="modal-content" id="imgFull" alt="Full image" />
+  </div>
+
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("imgFull");
+    const closeBtn = document.querySelector(".close-modal");
+
+    function openModalBySrc(src, altText) {
+      modal.style.display = "flex";
+      modal.setAttribute("aria-hidden", "false");
+      modalImg.src = src;
+      modalImg.alt = altText || "Image";
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    // Если позже добавишь <img class="product-logo">, это заработает автоматически:
+    document.querySelectorAll(".product-logo").forEach((img) => {
+      img.addEventListener("click", () => openModalBySrc(img.src, img.alt));
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    closeBtn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        closeModal();
+      }
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.style.display === "flex") closeModal();
+    });
+  </script>
+
+  <!-- Accessibility widget (Negishim) -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+  <script src="https://www.negishim.com/accessibility/accessibility_pro_group255.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    accessibility_rtl = false;
+    pixel_from_side = 20;
+    pixel_from_start = 20;
+    css_style = 2;
+  </script>
+  <!-- /Accessibility widget (Negishim) -->
+</body>
+</html>

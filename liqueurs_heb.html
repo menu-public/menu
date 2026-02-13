@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>תפריט ליקרים</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="theme_heb.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <a href="index.html" class="back-arrow">
+      <span class="back-icon">&larr;</span> חזור
+    </a>
+
+    <h1>ליקרים</h1>
+
+    <ul class="product-list">
+      <li class="product-item header-row">
+        <span class="product-name"></span>
+        <span class="product-gram">צ׳ייסר / שוט</span>
+      </li>
+
+      <li class="product-item"><span class="product-name">Fidgling</span><span class="product-price">15₪ / 30₪</span></li>
+      <li class="product-item"><span class="product-name">Passoa</span><span class="product-price">19₪ / 38₪</span></li>
+      <li class="product-item"><span class="product-name">Cointreau</span><span class="product-price">24₪ / 48₪</span></li>
+      <li class="product-item"><span class="product-name">Irish Cream</span><span class="product-price">15₪ / 30₪</span></li>
+      <li class="product-item"><span class="product-name">Amarula</span><span class="product-price">21₪ / 42₪</span></li>
+      <li class="product-item"><span class="product-name">Peach Liqueur</span><span class="product-price">15₪ / 30₪</span></li>
+      <li class="product-item"><span class="product-name">Chartreuse</span><span class="product-price">15₪ / 30₪</span></li>
+      <li class="product-item"><span class="product-name">Midori</span><span class="product-price">19₪ / 38₪</span></li>
+      <li class="product-item"><span class="product-name">Sambuca</span><span class="product-price">18₪ / 36₪</span></li>
+      <li class="product-item"><span class="product-name">Drambuie</span><span class="product-price">24₪ / 48₪</span></li>
+      <li class="product-item"><span class="product-name">Drambuie 15</span><span class="product-price">27₪ / 54₪</span></li>
+      <li class="product-item"><span class="product-name">Frangelico</span><span class="product-price">16₪ / 32₪</span></li>
+      <li class="product-item"><span class="product-name">Unicum</span><span class="product-price">24₪ / 48₪</span></li>
+      <li class="product-item"><span class="product-name">Jägermeister</span><span class="product-price">20₪ / 40₪</span></li>
+      <li class="product-item"><span class="product-name">BerenJäger</span><span class="product-price">21₪ / 42₪</span></li>
+      <li class="product-item"><span class="product-name">Becherovka</span><span class="product-price">21₪ / 42₪</span></li>
+      <li class="product-item"><span class="product-name">Southern Comfort</span><span class="product-price">21₪ / 42₪</span></li>
+      <li class="product-item"><span class="product-name">Bad Apple</span><span class="product-price">20₪ / 40₪</span></li>
+    </ul>
+
+    <h1>Aperitif</h1>
+
+    <ul class="product-list">
+      <li class="product-item header-row">
+        <span class="product-name"></span>
+        <span class="product-gram">צ׳ייסר / שוט</span>
+      </li>
+
+      <li class="product-item"><span class="product-name">Martini Bianco</span><span class="product-price">20₪ / 40₪</span></li>
+      <li class="product-item"><span class="product-name">Martini Rosso</span><span class="product-price">20₪ / 40₪</span></li>
+      <li class="product-item"><span class="product-name">Martini Bitter</span><span class="product-price">20₪ / 40₪</span></li>
+      <li class="product-item"><span class="product-name">Aperol</span><span class="product-price">21₪ / 42₪</span></li>
+      <li class="product-item"><span class="product-name">Campari</span><span class="product-price">21₪ / 42₪</span></li>
+      <li class="product-item"><span class="product-name">Ouzo</span><span class="product-price">17₪ / 34₪</span></li>
+      <li class="product-item"><span class="product-name">Perno</span><span class="product-price">19₪ / 38₪</span></li>
+      <li class="product-item"><span class="product-name">Arak</span><span class="product-price">16₪ / 32₪</span></li>
+    </ul>
+  </div>
+
+  <div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="imgFull" alt="Image">
+  </div>
+
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("imgFull");
+    const closeBtn = document.querySelector(".close-modal");
+
+    document.querySelectorAll('.product-logo').forEach(image => {
+      image.addEventListener('click', () => {
+        modal.style.display = "flex";
+        modalImg.src = image.src;
+        modalImg.alt = image.alt || "Image";
+      });
+    });
+
+    closeBtn.addEventListener('click', () => modal.style.display = "none");
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) modal.style.display = "none";
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape" && modal.style.display === "flex") {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+
+  <!-- Accessibility widget (Negishim) -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+  <script src="https://www.negishim.com/accessibility/accessibility_pro_group255.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    accessibility_rtl = false;
+    pixel_from_side = 20;
+    pixel_from_start = 20;
+    css_style = 2;
+  </script>
+  <!-- /Accessibility widget -->
+
+</body>
+</html>

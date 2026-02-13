@@ -1,0 +1,396 @@
+/* ===============================
+   PUBlic — Emerald Noir theme
+   include: <link rel="stylesheet" href="theme.css?v=1">
+   =============================== */
+
+:root{
+  --bg:#07140F;
+  --surface:#0B2419;
+  --surface-2:#0E2D20;
+  --border:#1E4B36;
+
+  --text:#EAF6EF;
+  --muted:#A7C7B6;
+
+  --accent:#C8A24A;     /* brass */
+  --brand-red:#D11F1F;  /* logo red */
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(200,162,74,.10), transparent 60%),
+    radial-gradient(900px 500px at 20% 30%, rgba(30,75,54,.18), transparent 55%),
+    var(--bg);
+}
+
+/* Common container */
+.container{
+  max-width:960px;
+  margin:0 auto;
+  padding:24px 20px 30px;
+}
+
+/* Headings (category pages) */
+h1{
+  text-align:center;
+  margin:18px 0 10px;
+  font-size:1.6rem;
+  font-family:'Rubik Dirt', system-ui;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  text-shadow:0 10px 24px rgba(0,0,0,.55);
+}
+
+/* ===== Index hero ===== */
+.hero{
+  position:relative;
+  height:50vh;
+  min-height:320px;
+  background-image:url('pic/background-zelenyi.jpg');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.72), rgba(0,0,0,.55));
+}
+.hero-content{ position:relative; z-index:1; }
+
+.logo{
+  max-width:280px;
+  margin-bottom:34px;
+  filter:
+    drop-shadow(0 9px 27px rgba(0,0,0,.65))
+    drop-shadow(0 0 19px rgba(200,162,74,.18));
+}
+
+.info p{
+  margin:8px 0;
+  font-size:1rem;
+  opacity:.95;
+}
+
+.social-links a{
+  color:rgba(200,162,74,.92);
+  text-decoration:none;
+  margin:0 12px;
+  font-size:1.15rem;
+  transition:color .2s ease, transform .2s ease;
+}
+.social-links a:hover{
+  color:var(--brand-red);
+  transform:translateY(-1px);
+}
+
+/* Language switcher */
+.lang-switcher{
+  position:absolute;
+  top:18px;
+  right:18px;
+  z-index:2;
+
+  background:rgba(7,20,15,.55);
+  border:1px solid rgba(30,75,54,.55);
+  border-radius:12px;
+  padding:6px 10px;
+
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+.lang-switcher a{
+  color:rgba(234,246,239,.88);
+  text-decoration:none;
+  margin:0 4px;
+  font-weight:700;
+  font-size:.9rem;
+  padding:6px 8px;
+  border-radius:8px;
+  transition:background-color .2s ease, color .2s ease;
+}
+.lang-switcher a.active{
+  text-decoration:none;
+  color:var(--accent);
+  background:rgba(200,162,74,.10);
+  box-shadow:inset 0 0 0 1px rgba(200,162,74,.35);
+  cursor:default;
+}
+
+/* Index buttons grid */
+.menu-buttons{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  gap:15px;
+  margin-top:10px;
+}
+.menu-button{
+  padding:25px;
+  text-align:center;
+  text-decoration:none;
+
+  font-family:'Rubik Dirt', system-ui;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  font-size:1.5rem;
+
+  color:var(--text);
+  border-radius:14px;
+  border:1px solid rgba(30,75,54,.70);
+  background:linear-gradient(180deg, rgba(14,45,32,.92), rgba(11,36,25,.92));
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.menu-button:hover{
+  transform:translateY(-3px);
+  border-color:rgba(200,162,74,.70);
+  box-shadow:0 14px 36px rgba(0,0,0,.45);
+  background:linear-gradient(180deg, rgba(16,54,38,.95), rgba(11,36,25,.95));
+}
+.menu-button:active{
+  transform:translateY(-1px);
+  outline:2px solid rgba(209,31,31,.35);
+  outline-offset:2px;
+}
+
+/* ===== Yellow stroke for Deal===== */
+
+.menu-button.is-deals .deal{
+  -webkit-text-stroke: 3px var(--accent); /* твой желтый/brass */
+  paint-order: stroke fill;
+}
+
+
+
+
+/* ===== Category pages: Topbar ===== */
+.topbar{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+  flex-wrap:wrap;
+  row-gap:10px;
+}
+
+/* Back button (category pages) */
+.back-arrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  margin-bottom:0;
+
+  color:rgba(234,246,239,.92);
+  text-decoration:none;
+  font-size:1rem;
+
+  padding:10px 12px;
+  min-height:44px;
+  line-height:1;
+
+  border-radius:12px;
+  border:1px solid rgba(30,75,54,.55);
+  background:rgba(7,20,15,.40);
+
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+
+  transition:transform .2s ease, border-color .2s ease, color .2s ease;
+}
+.back-arrow:hover{
+  transform:translateY(-1px);
+  border-color:rgba(200,162,74,.55);
+  color:var(--accent);
+}
+
+/* Badge: ВСЕГДА вправо (desktop) */
+.page-badge{
+  margin-left:auto;             /* <-- фикс “Public Menu слева” */
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:10px 14px;
+  min-height:44px;
+  line-height:1;
+  white-space:nowrap;
+
+  border-radius:12px;
+  border:1px solid rgba(30,75,54,.55);
+  background:rgba(7,20,15,.40);
+
+  color:rgba(234,246,239,.92);
+  font-weight:800;
+  letter-spacing:.4px;
+
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+/* Иконка: прибиваем цвет (FA часто рисует через ::before) */
+.page-badge i,
+.page-badge i::before{
+  color:rgba(200,162,74,.92) !important;
+}
+.page-badge svg{
+  fill:rgba(200,162,74,.92) !important;
+}
+
+/* ===== Category pages: menu list style (beer etc) ===== */
+.product-list{
+  list-style:none;
+  padding:0;
+  margin:0 0 18px 0;
+  border:1px solid rgba(30,75,54,.55);
+  border-radius:16px;
+  overflow:hidden;
+  background:rgba(7,20,15,.30);
+}
+
+.product-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 14px;
+  border-bottom:1px solid rgba(30,75,54,.45);
+  font-size:1.05rem;
+  background:linear-gradient(180deg, rgba(14,45,32,.45), rgba(11,36,25,.25));
+  transition:background .18s ease;
+}
+.product-item:last-child{ border-bottom:none; }
+
+.product-name{ flex-grow:1; margin-right:15px; }
+.product-price{ min-width:80px; text-align:right; font-weight:800; white-space:nowrap; }
+
+.product-ingredients{
+  min-width:40px;
+  text-align:right;
+  font-size:0.75rem;
+  letter-spacing:1px;
+  color:rgba(200, 162, 74, .92);
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.product-gram{
+  min-width:40px;
+  text-align:right;
+  font-size:14px;
+  letter-spacing:1px;
+  color:rgba(200,162,74,.92);
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* Optional header row for sizes */
+.header-row{
+  background:rgba(200,162,74,.06);
+}
+/* <-- ТВОЯ ПРОСЬБА: строка 0.3/0.5/1L жёлтая */
+.header-row .product-gram{
+  color:rgba(200,162,74,.92) !important;
+  font-weight:800;
+}
+
+.product-logo{
+  width:50px;
+  height:50px;
+  margin-right:15px;
+  border-radius:14px;
+  border:1px solid rgba(30,75,54,.60);
+  box-shadow:0 8px 18px rgba(0,0,0,.35);
+  cursor:pointer;
+  object-fit:cover;
+  transition:opacity .18s ease;
+}
+.product-logo:hover{ opacity:.95; }
+
+/* Modal */
+.modal{
+  display:none;
+  position:fixed;
+  z-index:1000;
+  inset:0;
+  background:rgba(0,0,0,.88);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+.modal-content{
+  max-width:min(520px, 92vw);
+  max-height:80vh;
+  border-radius:16px;
+  border:1px solid rgba(200,162,74,.35);
+  box-shadow:0 20px 60px rgba(0,0,0,.70);
+}
+.close-modal{
+  position:absolute;
+  top:16px;
+  right:18px;
+  color:rgba(200,162,74,.92);
+  font-size:40px;
+  font-weight:bold;
+  cursor:pointer;
+  user-select:none;
+  transition:transform .18s ease, color .18s ease;
+}
+.close-modal:hover{
+  transform:scale(1.05);
+  color:var(--brand-red);
+}
+
+/* Mobile */
+@media (max-width:520px){
+  .logo{ max-width:240px; margin-bottom:26px; }
+  .menu-button{ font-size:1.35rem; padding:22px; }
+  .lang-switcher{ top:14px; right:14px; }
+
+  .topbar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .topbar .back-arrow,
+  .page-badge{
+    width:100%;
+    justify-content:center;
+    margin-left:0; /* на мобиле бейдж по центру и на всю ширину */
+  }
+}
+
+
+/* Icons inside menu buttons (index) */
+.menu-button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+
+.menu-button i{
+  color: rgba(200,162,74,.92); /* brass */
+  font-size: 1.15em;
+  line-height: 1;
+}
+
+/* hover accent */
+.menu-button:hover i{
+  color: rgba(209,31,31,.92); /* logo red on hover */
+}
