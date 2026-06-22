@@ -34,6 +34,22 @@
       line-height: 1.5;
     }
 
+    .product-media {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .image-caption {
+      font-size: 0.68rem;
+      line-height: 1.2;
+      opacity: 0.62;
+      text-align: center;
+      max-width: 90px;
+    }
+
     .order-btn {
       display: none;
     }
@@ -51,6 +67,15 @@
         align-items: flex-start;
       }
 
+      .product-media {
+        align-items: flex-start;
+      }
+
+      .image-caption {
+        max-width: 120px;
+        text-align: start;
+      }
+
       .merch-description {
         font-size: 0.88rem;
       }
@@ -66,13 +91,16 @@
     <h1>מוצרי PUBlic</h1>
 
     <p class="merch-note">
-      התמונות להמחשה בלבד. זמינות, מידות ומחירים יכולים להשתנות במקום — גם למרצ׳ מותר להיות קצת ספונטני.
+      זמינות, מידות ומחירים יכולים להשתנות במקום — גם למרצ׳ מותר להיות קצת ספונטני.
     </p>
 
     <ul class="product-list">
 
       <li class="product-item merch-item">
-        <img src="pic/merch/merch-magnet.webp" alt="מגנט PUBlic למקרר" class="product-logo">
+        <span class="product-media">
+          <img src="pic/merch/merch-magnet.webp" alt="מגנט PUBlic למקרר" class="product-logo">
+          <span class="image-caption">התמונה להמחשה בלבד</span>
+        </span>
 
         <span class="merch-text">
           <span class="product-name">מגנט PUBlic למקרר</span>
@@ -89,7 +117,10 @@
       </li>
 
       <li class="product-item merch-item">
-        <img src="pic/merch/merch-shirt.webp" alt="חולצת PUBlic" class="product-logo">
+        <span class="product-media">
+          <img src="pic/merch/merch-shirt.webp" alt="חולצת PUBlic" class="product-logo">
+          <span class="image-caption">התמונה להמחשה בלבד</span>
+        </span>
 
         <span class="merch-text">
           <span class="product-name">חולצת PUBlic</span>
@@ -106,7 +137,10 @@
       </li>
 
       <li class="product-item merch-item">
-        <img src="pic/merch/merch-cube.webp" alt="קוביית משחק PUBlic" class="product-logo">
+        <span class="product-media">
+          <img src="pic/merch/merch-cube.webp" alt="קוביית משחק PUBlic" class="product-logo">
+          <span class="image-caption">התמונה להמחשה בלבד</span>
+        </span>
 
         <span class="merch-text">
           <span class="product-name">קוביית משחק PUBlic</span>
@@ -123,7 +157,10 @@
       </li>
 
       <li class="product-item merch-item">
-        <img src="pic/merch/merch-opener.webp" alt="פותחן בקבוקים מגנטי PUBlic" class="product-logo">
+        <span class="product-media">
+          <img src="pic/merch/merch-opener.webp" alt="פותחן בקבוקים מגנטי PUBlic" class="product-logo">
+          <span class="image-caption">התמונה להמחשה בלבד</span>
+        </span>
 
         <span class="merch-text">
           <span class="product-name">פותחן בקבוקים מגנטי PUBlic</span>
