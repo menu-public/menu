@@ -34,6 +34,22 @@
       line-height: 1.5;
     }
 
+    .product-media {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .image-caption {
+      font-size: 0.68rem;
+      line-height: 1.2;
+      opacity: 0.62;
+      text-align: center;
+      max-width: 90px;
+    }
+
     .order-btn {
       display: none;
     }
@@ -51,6 +67,15 @@
         align-items: flex-start;
       }
 
+      .product-media {
+        align-items: flex-start;
+      }
+
+      .image-caption {
+        max-width: 120px;
+        text-align: start;
+      }
+
       .merch-description {
         font-size: 0.88rem;
       }
@@ -66,13 +91,16 @@
     <h1>Мерч PUBlic</h1>
 
     <p class="merch-note">
-      Изображения приведены для иллюстрации. Наличие, размеры и цены могут меняться на месте — мерч тоже имеет право на маленькую драму.
+      Наличие, размеры и цены могут меняться на месте — мерч тоже имеет право на маленькую драму.
     </p>
 
     <ul class="product-list">
 
       <li class="product-item merch-item">
-        <img src="pic/merch/merch-magnet.webp" alt="Магнит PUBlic на холодильник" class="product-logo">
+        <span class="product-media">
+          <img src="pic/merch/merch-magnet.webp" alt="Магнит PUBlic на холодильник" class="product-logo">
+          <span class="image-caption">Изображение приведено для иллюстрации</span>
+        </span>
 
         <span class="merch-text">
           <span class="product-name">Магнит PUBlic на холодильник</span>
@@ -89,7 +117,10 @@
       </li>
 
       <li class="product-item merch-item">
-        <img src="pic/merch/merch-shirt.webp" alt="Футболка PUBlic" class="product-logo">
+        <span class="product-media">
+          <img src="pic/merch/merch-shirt.webp" alt="Футболка PUBlic" class="product-logo">
+          <span class="image-caption">Изображение приведено для иллюстрации</span>
+        </span>
 
         <span class="merch-text">
           <span class="product-name">Футболка PUBlic</span>
@@ -106,7 +137,10 @@
       </li>
 
       <li class="product-item merch-item">
-        <img src="pic/merch/merch-cube.webp" alt="Кубик-игра PUBlic" class="product-logo">
+        <span class="product-media">
+          <img src="pic/merch/merch-cube.webp" alt="Кубик-игра PUBlic" class="product-logo">
+          <span class="image-caption">Изображение приведено для иллюстрации</span>
+        </span>
 
         <span class="merch-text">
           <span class="product-name">Кубик-игра PUBlic</span>
@@ -123,7 +157,10 @@
       </li>
 
       <li class="product-item merch-item">
-        <img src="pic/merch/merch-opener.webp" alt="Магнитная открывашка PUBlic" class="product-logo">
+        <span class="product-media">
+          <img src="pic/merch/merch-opener.webp" alt="Магнитная открывашка PUBlic" class="product-logo">
+          <span class="image-caption">Изображение приведено для иллюстрации</span>
+        </span>
 
         <span class="merch-text">
           <span class="product-name">Магнитная открывашка PUBlic</span>
