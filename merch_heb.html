@@ -1,251 +1,188 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>מוצרי PUBlic</title>
 
-  <!-- Same visual system as the PUBlic menu pages -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="theme_heb.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="theme_heb.css">
 
   <style>
-    /* PUBlic merch page additions. Keep this block scoped so the rest of the menu stays sane, somehow. */
-    .merch-hero {
-      margin: 10px 0 26px;
-      padding: 18px 18px 20px;
-      border: 1px solid rgba(200, 162, 74, 0.28);
-      border-radius: 22px;
-      background: linear-gradient(145deg, rgba(7, 35, 27, 0.92), rgba(2, 18, 14, 0.94));
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
-      text-align: center;
-    }
-
-    .merch-hero__badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-      padding: 7px 13px;
-      border: 1px solid rgba(200, 162, 74, 0.35);
-      border-radius: 999px;
-      color: var(--accent, #C8A24A);
-      font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      background: rgba(0, 0, 0, 0.22);
-    }
-
-    .merch-hero p {
-      max-width: 760px;
-      margin: 8px auto 0;
-      line-height: 1.65;
-      color: rgba(255, 255, 255, 0.82);
-    }
-
-    .merch-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .merch-item {
-      overflow: hidden;
-      border: 1px solid rgba(200, 162, 74, 0.26);
-      border-radius: 22px;
-      background: rgba(0, 0, 0, 0.24);
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
-    }
-
-    .merch-img-wrap {
-      position: relative;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.92);
-      aspect-ratio: 16 / 9;
-    }
-
-    .merch-img-wrap img {
+    .merch-description {
       display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      margin-top: 6px;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      opacity: 0.82;
     }
 
-    .merch-body {
-      padding: 16px 17px 18px;
-    }
-
-    .merch-title {
-      margin: 0 0 8px;
-      color: var(--accent, #C8A24A);
-      font-size: 1.22rem;
-      font-weight: 900;
-      line-height: 1.25;
-    }
-
-    .merch-desc {
-      margin: 0 0 14px;
-      color: rgba(255, 255, 255, 0.82);
-      line-height: 1.55;
-      font-size: 0.98rem;
-    }
-
-    .merch-meta {
+    .merch-text {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255, 255, 255, 0.09);
-    }
-
-    .merch-price-label {
-      color: rgba(255, 255, 255, 0.62);
-      font-size: 0.88rem;
-      font-weight: 500;
-    }
-
-    .merch-price {
-      color: #fff;
-      font-size: 1.22rem;
-      font-weight: 900;
-      white-space: nowrap;
+      flex-direction: column;
+      flex: 1;
     }
 
     .merch-note {
-      margin: 20px 0 0;
-      padding: 14px 16px;
-      border: 1px dashed rgba(200, 162, 74, 0.28);
-      border-radius: 18px;
-      color: rgba(255, 255, 255, 0.72);
-      line-height: 1.55;
-      background: rgba(0, 0, 0, 0.18);
+      margin: 8px 0 22px;
       text-align: center;
+      opacity: 0.78;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
-    /* Purchase via WhatsApp is prepared but hidden on purpose. Humanity survived another button. */
-    .whatsapp-order {
-      display: none !important;
+    .order-btn {
+      display: none;
     }
 
-    @media (max-width: 760px) {
-      .merch-grid {
-        grid-template-columns: 1fr;
-      }
+    .product-item.merch-item {
+      align-items: center;
+    }
 
-      .merch-hero {
-        padding: 16px 14px 18px;
-      }
+    .product-item.merch-item .product-logo {
+      object-fit: cover;
+    }
 
-      .merch-meta {
+    @media (max-width: 650px) {
+      .product-item.merch-item {
         align-items: flex-start;
-        flex-direction: column;
+      }
+
+      .merch-description {
+        font-size: 0.88rem;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="container merch-page">
-    <a class="back-button" href="index.html" aria-label="חזרה לתפריט הראשי">
-      <span>&rarr;</span> חזור
-    </a>
 
-    <section class="merch-hero" aria-labelledby="merch-title">
-      <div class="merch-hero__badge">
-        <i class="fa-solid fa-gift" aria-hidden="true"></i>
-        <span>מוצרי בר ומתנות</span>
-      </div>
-      <h1 id="merch-title">מוצרי PUBlic</h1>
-      <p>
-        חולצות, אביזרי בר, משחקים קטנים ומתנות עם האופי של PUBlic. מוצרים שמתאימים לבר,
-        לבית, למסיבות ולכל מי שמעדיף מזכרת שימושית במקום עוד מגנט עצוב מהסופר.
-      </p>
-    </section>
+  <div class="container">
+    <a href="index.html" class="back-arrow"><i class="fa-solid fa-arrow-right"></i> חזור</a>
 
-    <ul class="merch-grid">
-      <li class="merch-item">
-        <div class="merch-img-wrap">
-          <img src="pic/merch/merch-magnet.webp" alt="מגנט PUBlic למקרר" loading="lazy" />
-        </div>
-        <div class="merch-body">
-          <h2 class="merch-title">מגנט PUBlic למקרר</h2>
-          <p class="merch-desc">
-            מגנט מעוצב עם לוגו PUBlic בגימור שחור נקי. מתאים למקרר, לבר הביתי או לכל מקום
-            שבו צריך קצת יותר אופי ופחות פלסטיק משעמם.
-          </p>
-          <div class="merch-meta">
-            <span class="merch-price-label">מחיר</span>
-            <span class="merch-price">₪__</span>
-          </div>
-          <a class="whatsapp-order" href="#" aria-hidden="true" tabindex="-1">הזמנה בוואטסאפ</a>
-        </div>
-      </li>
-
-      <li class="merch-item">
-        <div class="merch-img-wrap">
-          <img src="pic/merch/merch-shirt.webp" alt="חולצת PUBlic" loading="lazy" />
-        </div>
-        <div class="merch-body">
-          <h2 class="merch-title">חולצת PUBlic</h2>
-          <p class="merch-desc">
-            חולצה שחורה עם לוגו PUBlic בחזית. זמינה במידות שונות ומתאימה לערבי בר,
-            אירועים, צוות או סתם לאנשים שרוצים להיראות כאילו הם שייכים למקום הנכון.
-          </p>
-          <div class="merch-meta">
-            <span class="merch-price-label">מחיר</span>
-            <span class="merch-price">₪__</span>
-          </div>
-          <a class="whatsapp-order" href="#" aria-hidden="true" tabindex="-1">הזמנה בוואטסאפ</a>
-        </div>
-      </li>
-
-      <li class="merch-item">
-        <div class="merch-img-wrap">
-          <img src="pic/merch/merch-cube.webp" alt="קוביית משחק PUBlic" loading="lazy" />
-        </div>
-        <div class="merch-body">
-          <h2 class="merch-title">קוביית משחק PUBlic</h2>
-          <p class="merch-desc">
-            קוביית משחק לבר ולמסיבות עם משימות שתייה ו-QR לקישור מהיר. מוצר קטן,
-            פשוט ומסוכן חברתית בדיוק במידה הנכונה.
-          </p>
-          <div class="merch-meta">
-            <span class="merch-price-label">מחיר</span>
-            <span class="merch-price">₪__</span>
-          </div>
-          <a class="whatsapp-order" href="#" aria-hidden="true" tabindex="-1">הזמנה בוואטסאפ</a>
-        </div>
-      </li>
-
-      <li class="merch-item">
-        <div class="merch-img-wrap">
-          <img src="pic/merch/merch-opener.webp" alt="פותחן בקבוקים מגנטי PUBlic" loading="lazy" />
-        </div>
-        <div class="merch-body">
-          <h2 class="merch-title">פותחן בקבוקים מגנטי PUBlic</h2>
-          <p class="merch-desc">
-            פותחן בקבוקים בצורת פקק, עם מגנטים בגב לחיבור נוח למקרר או לבר.
-            אביזר קטן שנראה טוב וגם עושה עבודה, תופעה נדירה להפליא.
-          </p>
-          <div class="merch-meta">
-            <span class="merch-price-label">מחיר</span>
-            <span class="merch-price">₪__</span>
-          </div>
-          <a class="whatsapp-order" href="#" aria-hidden="true" tabindex="-1">הזמנה בוואטסאפ</a>
-        </div>
-      </li>
-    </ul>
+    <h1>מוצרי PUBlic</h1>
 
     <p class="merch-note">
-      התמונות להמחשה בלבד. זמינות, מידות ומחירים יכולים להשתנות במקום.
+      חולצות, אביזרי בר ומתנות קטנות מהבר. התמונות להמחשה בלבד.
     </p>
-  </main>
+
+    <ul class="product-list">
+
+      <li class="product-item merch-item">
+        <img src="pic/merch/merch-magnet.webp" alt="מגנט PUBlic למקרר" class="product-logo">
+
+        <span class="merch-text">
+          <span class="product-name">מגנט PUBlic למקרר</span>
+          <span class="merch-description">
+            מגנט דקורטיבי בעיצוב לוגו PUBlic, מתאים למקרר, לבר ביתי או כמתנה קטנה לאנשים שעוד זוכרים איפה שמו את הבירה.
+          </span>
+        </span>
+
+        <span class="product-price">₪10</span>
+
+        <a class="order-btn" href="#" target="_blank" rel="noopener">
+          הזמנה בוואטסאפ
+        </a>
+      </li>
+
+      <li class="product-item merch-item">
+        <img src="pic/merch/merch-shirt.webp" alt="חולצת PUBlic" class="product-logo">
+
+        <span class="merch-text">
+          <span class="product-name">חולצת PUBlic</span>
+          <span class="merch-description">
+            חולצה שחורה עם לוגו PUBlic בחזית. זמינה במידות שונות לגברים ולנשים, בהתאם למלאי.
+          </span>
+        </span>
+
+        <span class="product-price">₪50</span>
+
+        <a class="order-btn" href="#" target="_blank" rel="noopener">
+          הזמנה בוואטסאפ
+        </a>
+      </li>
+
+      <li class="product-item merch-item">
+        <img src="pic/merch/merch-cube.webp" alt="קוביית משחק PUBlic" class="product-logo">
+
+        <span class="merch-text">
+          <span class="product-name">קוביית משחק PUBlic</span>
+          <span class="merch-description">
+            קוביית משחק לבר ולמסיבות עם משימות שתייה. מתאימה לערבים שבהם האנושות החליטה שכוס רגילה זה לא מספיק.
+          </span>
+        </span>
+
+        <span class="product-price">₪35</span>
+
+        <a class="order-btn" href="#" target="_blank" rel="noopener">
+          הזמנה בוואטסאפ
+        </a>
+      </li>
+
+      <li class="product-item merch-item">
+        <img src="pic/merch/merch-opener.webp" alt="פותחן בקבוקים מגנטי PUBlic" class="product-logo">
+
+        <span class="merch-text">
+          <span class="product-name">פותחן בקבוקים מגנטי PUBlic</span>
+          <span class="merch-description">
+            פותחן בקבוקים בצורת פקק, עם מגנטים בגב לחיבור נוח למקרר, לבר או לכל מקום שבו בקבוק צריך להיפתח בלי דרמה.
+          </span>
+        </span>
+
+        <span class="product-price">₪35</span>
+
+        <a class="order-btn" href="#" target="_blank" rel="noopener">
+          הזמנה בוואטסאפ
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="imgFull" alt="Full image">
+  </div>
+
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("imgFull");
+    const closeBtn = document.querySelector(".close-modal");
+
+    document.querySelectorAll('.product-logo').forEach(image => {
+      image.addEventListener('click', () => {
+        modal.style.display = "flex";
+        modalImg.src = image.src;
+        modalImg.alt = image.alt || "Image";
+      });
+    });
+
+    closeBtn.addEventListener('click', () => modal.style.display = "none");
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) modal.style.display = "none";
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape" && modal.style.display === "flex") modal.style.display = "none";
+    });
+  </script>
+
+  <!-- Accessibility widget (Negishim) -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+
+  <script src="https://www.negishim.com/accessibility/accessibility_pro_group255.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    accessibility_rtl = true;
+    pixel_from_side = 20;
+    pixel_from_start = 20;
+    css_style = 2;
+  </script>
+
+  <!-- /Accessibility widget (Negishim - https://www.negishim.org/%d7%94%d7%aa%d7%a7%d7%a0%d7%aa%2d%d7%94%d7%a7%d7%95%d7%93%2d2.html css_style = 2 - button color) -->
+
 </body>
 </html>
