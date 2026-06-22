@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мерч PUBlic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="theme.css">
+
+  <style>
+    .merch-description {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      opacity: 0.82;
+    }
+
+    .merch-text {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .merch-note {
+      margin: 8px 0 22px;
+      text-align: center;
+      opacity: 0.78;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .order-btn {
+      display: none;
+    }
+
+    .product-item.merch-item {
+      align-items: center;
+    }
+
+    .product-item.merch-item .product-logo {
+      object-fit: cover;
+    }
+
+    @media (max-width: 650px) {
+      .product-item.merch-item {
+        align-items: flex-start;
+      }
+
+      .merch-description {
+        font-size: 0.88rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <a href="index_rus.html" class="back-arrow"><i class="fa-solid fa-arrow-left"></i> Назад</a>
+
+    <h1>Мерч PUBlic</h1>
+
+    <p class="merch-note">
+      Изображения приведены для иллюстрации. Наличие, размеры и цены могут меняться на месте — мерч тоже имеет право на маленькую драму.
+    </p>
+
+    <ul class="product-list">
+
+      <li class="product-item merch-item">
+        <img src="pic/merch/merch-magnet.webp" alt="Магнит PUBlic на холодильник" class="product-logo">
+
+        <span class="merch-text">
+          <span class="product-name">Магнит PUBlic на холодильник</span>
+          <span class="merch-description">
+            Декоративный магнит с логотипом PUBlic. Подходит для холодильника, домашнего бара или небольшого подарка человеку, который еще помнит, где оставил пиво.
+          </span>
+        </span>
+
+        <span class="product-price">₪10</span>
+
+        <a class="order-btn" href="#" target="_blank" rel="noopener">
+          Заказать в WhatsApp
+        </a>
+      </li>
+
+      <li class="product-item merch-item">
+        <img src="pic/merch/merch-shirt.webp" alt="Футболка PUBlic" class="product-logo">
+
+        <span class="merch-text">
+          <span class="product-name">Футболка PUBlic</span>
+          <span class="merch-description">
+            Черная футболка с логотипом PUBlic спереди. Доступна в разных размерах для мужчин и женщин, в зависимости от наличия.
+          </span>
+        </span>
+
+        <span class="product-price">₪50</span>
+
+        <a class="order-btn" href="#" target="_blank" rel="noopener">
+          Заказать в WhatsApp
+        </a>
+      </li>
+
+      <li class="product-item merch-item">
+        <img src="pic/merch/merch-cube.webp" alt="Кубик-игра PUBlic" class="product-logo">
+
+        <span class="merch-text">
+          <span class="product-name">Кубик-игра PUBlic</span>
+          <span class="merch-description">
+            Барный кубик для вечеринок и компаний с заданиями для напитков. Для вечеров, когда обычного бокала людям внезапно стало мало.
+          </span>
+        </span>
+
+        <span class="product-price">₪35</span>
+
+        <a class="order-btn" href="#" target="_blank" rel="noopener">
+          Заказать в WhatsApp
+        </a>
+      </li>
+
+      <li class="product-item merch-item">
+        <img src="pic/merch/merch-opener.webp" alt="Магнитная открывашка PUBlic" class="product-logo">
+
+        <span class="merch-text">
+          <span class="product-name">Магнитная открывашка PUBlic</span>
+          <span class="merch-description">
+            Открывашка в форме крышки с магнитами на обратной стороне. Можно крепить на холодильник, бар или любое место, где бутылка должна открываться без лишней драмы.
+          </span>
+        </span>
+
+        <span class="product-price">₪35</span>
+
+        <a class="order-btn" href="#" target="_blank" rel="noopener">
+          Заказать в WhatsApp
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="imgFull" alt="Full image">
+  </div>
+
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("imgFull");
+    const closeBtn = document.querySelector(".close-modal");
+
+    document.querySelectorAll('.product-logo').forEach(image => {
+      image.addEventListener('click', () => {
+        modal.style.display = "flex";
+        modalImg.src = image.src;
+        modalImg.alt = image.alt || "Image";
+      });
+    });
+
+    closeBtn.addEventListener('click', () => modal.style.display = "none");
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) modal.style.display = "none";
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape" && modal.style.display === "flex") modal.style.display = "none";
+    });
+  </script>
+
+  <!-- Accessibility widget (Negishim) -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+
+  <script src="https://www.negishim.com/accessibility/accessibility_pro_group255.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    accessibility_rtl = true;
+    pixel_from_side = 20;
+    pixel_from_start = 20;
+    css_style = 2;
+  </script>
+
+  <!-- /Accessibility widget (Negishim - https://www.negishim.org/%d7%94%d7%aa%d7%a7%d7%a0%d7%aa%2d%d7%94%d7%a7%d7%95%d7%93%2d2.html css_style = 2 - button color) -->
+
+</body>
+</html>
