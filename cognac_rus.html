@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Коньяк</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <link rel="stylesheet" href="theme.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="theme.css" />
 </head>
 
 <body>
-
-  <div class="container">
-      <a href="index_rus.html" class="back-arrow">
-        <i class="fa-solid fa-arrow-left"></i> Назад
-      </a>
-
+  <main class="container">
+    <a href="index_rus.html" class="back-arrow">
+      <i
+        class="fa-solid fa-arrow-left"
+        aria-hidden="true"
+      ></i>
+      <span>Назад</span>
+    </a>
 
     <h1>Коньяк</h1>
 
@@ -29,56 +40,151 @@
         <span class="product-gram">чейсер / шот</span>
       </li>
 
-        <li class="product-item"><span class="product-name">Godet VS</span><span class="product-price">25₪ / 50₪</span></li>
-      <li class="product-item"><span class="product-name">Godet VSOP</span><span class="product-price">23₪ / 46₪</span></li>
-      <li class="product-item"><span class="product-name">Camus VS</span><span class="product-price">26₪ / 52₪</span></li>
-      <li class="product-item"><span class="product-name">Camus VSOP</span><span class="product-price">29₪ / 58₪</span></li>
-      <li class="product-item"><span class="product-name">Courvoisier VS</span><span class="product-price">26₪ / 52₪</span></li>
-      <li class="product-item"><span class="product-name">Hennessy VS</span><span class="product-price">29₪ / 58₪</span></li>
-      <li class="product-item"><span class="product-name">Hennessy VSOP</span><span class="product-price">32₪ / 64₪</span></li>
-      <li class="product-item"><span class="product-name">Hennessy XO</span><span class="product-price">74₪ / 148₪</span></li>
-      <li class="product-item"><span class="product-name">Louis Royer VSOP</span><span class="product-price">23₪ / 46₪</span></li>
-      <li class="product-item"><span class="product-name">Remy Martin VSOP</span><span class="product-price">30₪ / 60₪</span></li>
-      <li class="product-item"><span class="product-name">Remy Martin XO</span><span class="product-price">74₪ / 148₪</span></li>
-    </ul>
+      <li class="product-item">
+        <span class="product-name">Godet VS</span>
+        <span class="product-price">25₪ / 50₪</span>
+      </li>
 
-    </div>
+      <li class="product-item">
+        <span class="product-name">Godet VSOP</span>
+        <span class="product-price">23₪ / 46₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Camus VS</span>
+        <span class="product-price">26₪ / 52₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Camus VSOP</span>
+        <span class="product-price">29₪ / 58₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Courvoisier VS</span>
+        <span class="product-price">26₪ / 52₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Hennessy VS</span>
+        <span class="product-price">29₪ / 58₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Hennessy VSOP</span>
+        <span class="product-price">32₪ / 64₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Hennessy XO</span>
+        <span class="product-price">74₪ / 148₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Louis Royer VSOP</span>
+        <span class="product-price">23₪ / 46₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Remy Martin VSOP</span>
+        <span class="product-price">30₪ / 60₪</span>
+      </li>
+
+      <li class="product-item">
+        <span class="product-name">Remy Martin XO</span>
+        <span class="product-price">74₪ / 148₪</span>
+      </li>
+    </ul>
+  </main>
 
   <!-- Модальное окно -->
-  <div id="imageModal" class="modal">
-    <span class="close-modal">&times;</span>
-    <img class="modal-content" id="imgFull" alt="Изображение">
+  <div
+    id="imageModal"
+    class="modal"
+    aria-hidden="true"
+    style="display: none;"
+  >
+    <span
+      class="close-modal"
+      role="button"
+      tabindex="0"
+      aria-label="Закрыть"
+    >
+      &times;
+    </span>
+
+    <img
+      class="modal-content"
+      id="imgFull"
+      src=""
+      alt="Увеличенное изображение"
+    />
   </div>
 
   <script>
+    const logos = document.querySelectorAll(".product-logo");
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("imgFull");
     const closeBtn = document.querySelector(".close-modal");
 
-    document.querySelectorAll('.product-logo').forEach(image => {
-      image.addEventListener('click', () => {
-        modal.style.display = "flex";
+    if (logos.length && modal && modalImg && closeBtn) {
+      function openModal(image) {
         modalImg.src = image.src;
         modalImg.alt = image.alt || "Изображение";
-      });
-    });
 
-    closeBtn.addEventListener('click', () => modal.style.display = "none");
-
-    modal.addEventListener('click', (event) => {
-      if (event.target === modal) modal.style.display = "none";
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === "Escape" && modal.style.display === "flex") {
-        modal.style.display = "none";
+        modal.style.display = "flex";
+        modal.setAttribute("aria-hidden", "false");
       }
-    });
+
+      function closeModal() {
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+        modalImg.src = "";
+      }
+
+      logos.forEach((image) => {
+        image.addEventListener("click", () => {
+          openModal(image);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+
+      closeBtn.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          closeModal();
+        }
+      });
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          modal.getAttribute("aria-hidden") === "false"
+        ) {
+          closeModal();
+        }
+      });
+    }
   </script>
 
   <!-- Accessibility widget (Negishim) -->
-  <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
-  <script src="https://www.negishim.com/accessibility/accessibility_pro_group255.js" type="text/javascript"></script>
+  <script
+    src="https://code.jquery.com/jquery-1.12.4.js"
+    type="text/javascript"
+  ></script>
+
+  <script
+    src="https://www.negishim.com/accessibility/accessibility_pro_group255.js"
+    type="text/javascript"
+  ></script>
+
   <script type="text/javascript">
     accessibility_rtl = true;
     pixel_from_side = 20;
@@ -87,5 +193,6 @@
   </script>
   <!-- /Accessibility widget -->
 
+  <script src="analytics.js"></script>
 </body>
 </html>
